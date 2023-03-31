@@ -1,0 +1,8 @@
+ERROR 2023-03-30 17:11:53 127.0.0.1 /api/user/register/ ERROR: (1146, "Table 'ChatGPT.APP_Users_Login_userinfo' doesn't exist")
+ERROR 2023-03-30 17:12:27 127.0.0.1 /api/user/register/ ERROR: Object of type TypeError is not JSON serializable
+ERROR 2023-03-31 22:19:51 127.0.0.1 /api/user/operation/modify_params/ ERROR: ['“de85d0e5-7491-4b69-97da-173f4192391”不是一个有效的UUID']
+ERROR 2023-03-31 22:20:29 127.0.0.1 /api/user/operation/modify_params/ ERROR: ['“de85d0e5-7491-4b69-97da-173f4192391”不是一个有效的UUID']
+ERROR 2023-03-31 22:21:04 127.0.0.1 /api/user/operation/modify_params/ ERROR: ['“de85d0e5-7491-4b69-97da-173f4192391”不是一个有效的UUID']
+ERROR 2023-03-31 22:22:44 127.0.0.1 /api/user/operation/regenerate_message/ ERROR: 'de85d0e5-7491-4b69-97da-173f41923917'
+ERROR 2023-03-31 23:08:39 127.0.0.1 /api/user/status/ ERROR: CURRENT_STATUS
+ERROR 2023-03-31 23:09:20 127.0.0.1 /api/user/status/ ERROR: CURRENT_STATUS

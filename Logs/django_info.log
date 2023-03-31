@@ -1,0 +1,4 @@
+WARNING 2023-03-30 15:32:43,329 log 9093 6163935232 Not Found: /favicon.ico 
+WARNING 2023-03-30 15:32:43,329 basehttp 9093 6163935232 "GET /favicon.ico HTTP/1.1" 404 2118 
+WARNING 2023-03-30 17:08:55,591 log 14965 6163640320 Forbidden (CSRF cookie not set.): /api/user/register/ 
+WARNING 2023-03-30 17:08:55,594 basehttp 14965 6163640320 "POST /api/user/register/ HTTP/1.1" 403 2801 
