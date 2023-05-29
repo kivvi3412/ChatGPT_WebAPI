@@ -7,6 +7,25 @@ from ChatGPT_WebAPI.settings import chat_assistant_interface_dict
 
 
 # Create your views here.
+def set_avatar(request):
+    req_data = request_data(request, 'POST', ['token', 'avatar_link'])
+    user_info = UserInfo.objects.filter(token=req_data['token'])
+    try:
+        user_info.update(avatar_link=req_data['avatar_link'])
+        return api_response('200', AppMsg.SET_AVATAR_SUCCESS.value)
+    except Exception as e:
+        return api_response('400', AppMsg.SET_AVATAR_FAILED.value, {'error': str(e)})
+
+
+def get_avatar(request):
+    req_data = request_data(request, 'POST', ['token'])
+    user_info = UserInfo.objects.filter(token=req_data['token'])
+    try:
+        return api_response('200', AppMsg.GET_AVATAR_SUCCESS.value, {'avatar_link': user_info[0].avatar_link})
+    except Exception as e:
+        return api_response('400', AppMsg.GET_AVATAR_FAILED.value, {'error': str(e)})
+
+
 def create_new_chat(request):
     req_data = request_data(request, 'POST', ['token'])
     user_info = UserInfo.objects.filter(token=req_data['token'])
@@ -34,7 +53,7 @@ def create_new_chat(request):
 def load_history(request):
     req_data = request_data(request, 'POST', ['token'])
     user_info = UserInfo.objects.filter(token=req_data['token'])
-    chat_info = ChatInfo.objects.filter(user_id=user_info[0].user_id, is_deleted=False)
+    chat_info = ChatInfo.objects.filter(user_id=user_info[0].user_id, is_deleted=False)[:30]
     return api_response('200', AppMsg.LOAD_HISTORY_SUCCESS.value, filter_obj_json(chat_info))
 
 
@@ -174,3 +193,13 @@ def modify_params(request):
     chat_info_db.openai_params = eval(req_data['params'])
     chat_info_db.save()
     return api_response('200', AppMsg.MODIFY_PARAMS_SUCCESS.value, {'params': eval(req_data['params'])})
+
+
+def load_single_chat_history(request):
+    req_data = request_data(request, 'POST', ['chat_id'])
+    # 从数据库中找到这个对话并且修改
+    chat_info_db = ChatInfo.objects.filter(chat_id=req_data['chat_id'])[0]
+    return api_response('200', AppMsg.LOAD_SINGLE_CHAT_HISTORY_SUCCESS.value, {
+        'chat_message': eval(str(chat_info_db.chat_message)),
+        'chat_summary': chat_info_db.chat_summary
+    })

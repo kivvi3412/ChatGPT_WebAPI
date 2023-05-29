@@ -21,11 +21,14 @@ urlpatterns = [
     # ---------- APP_Users ---------- #
     path('api/user/register/', APP_Users_Login.views.user_register),  # 用户注册
     path('api/user/login/', APP_Users_Login.views.user_login),  # 用户登陆
-    path('api/user/status/', APP_Users_Login.views.current_status),  # 用户登出
+    path('api/user/status/', APP_Users_Login.views.current_status),  # 状态
 
     # ---------- APP_Users_Operation ---------- #
+    path('api/user/operation/set_avatar/', APP_User_Operate.views.set_avatar),
+    path('api/user/operation/get_avatar/', APP_User_Operate.views.get_avatar),
     path('api/user/operation/new_chat/', APP_User_Operate.views.create_new_chat),
     path('api/user/operation/chat_list/', APP_User_Operate.views.load_history),
+    path('api/user/operation/load_single_chat_history/', APP_User_Operate.views.load_single_chat_history),
     path('api/user/operation/delete_chat/', APP_User_Operate.views.delete_chat),
     path('api/user/operation/clear_conversation/', APP_User_Operate.views.clear_conversation),
     path('api/user/operation/send_message/', APP_User_Operate.views.send_message),

@@ -36,7 +36,7 @@ class ChatAssistant(object):
         自动添加消息到messages和current_messages
         """
         # 2048 is the max number of tokens for a single message
-        if self.get_token_count([{"role": role, "content": content}]) > 2048:
+        if role == "user" and self.get_token_count([{"role": role, "content": content}]) > 2048:
             return False
         self.messages.append({"role": role, "content": content})
         return True

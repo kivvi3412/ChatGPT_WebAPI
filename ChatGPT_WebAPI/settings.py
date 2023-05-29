@@ -163,4 +163,4 @@ LOGGING = {
 
 websocket_interface_dict = {}  # websocket接口
 chat_assistant_interface_dict = {}  # 聊天助手接口
-openai_api = "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"
+openai_api = "sk-your-api-key"

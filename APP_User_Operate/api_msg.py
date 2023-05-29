@@ -3,6 +3,11 @@ from enum import Enum
 
 
 class AppMsg(Enum):
+    LOAD_SINGLE_CHAT_HISTORY_SUCCESS = "加载单个聊天历史成功"
+    GET_AVATAR_FAILED = "获取头像失败"
+    GET_AVATAR_SUCCESS = "获取头像成功"
+    SET_AVATAR_FAILED = "设置头像失败"
+    SET_AVATAR_SUCCESS = "设置头像成功"
     STOP_GENERATE_FAILED = "系统变量不存在, chat"
     SEND_MESSAGE_FAILED = "发送消息失败"
     SET_SYSTEM_MESSAGE_SUCCESS = "设置系统消息成功"
